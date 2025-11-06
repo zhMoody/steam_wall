@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Steam 封面墙 - 智能密集布局</title>
+    <!-- 引入 html2canvas 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div class="header">
+    <h2>Steam 封面墙</h2>
+    <div class="controls-container">
+        <div class="controls">
+            <div class="c_input">
+                <label for="steamid">SteamID64:</label>
+                <input id="steamid" placeholder="输入 SteamID64">
+                <a class="input-link" href="https://store.steampowered.com/account/"
+                   target="_blank">获取自己的SteamID64</a>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="c_input">
+                <label for="api-key-input">API Key (可选):</label>
+                <input id="api-key-input" type="password" placeholder="输入你的 Steam API Key">
+                <a class="input-link" href="https://steamcommunity.com/dev/apikey" target="_blank">获取自己的ApiKey</a>
+            </div>
+        </div>
+        <div class="input-row">
+            <div>
+                <button onclick="saveApiKey()">保存 Key</button>
+                <button onclick="loadGames()">生成</button>
+                <button id="download-btn" disabled>下载封面墙</button>
+            </div>
+        </div>
+    </div>
+    <div id="history-container"></div>
+</div>
+
+<div class="main-content">
+    <div id="message-container" class="hidden"></div>
+    <div id="grid"></div>
+</div>
+<script src="./index.js"></script>
+</body>
+</html>
