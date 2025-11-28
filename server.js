@@ -1,9 +1,9 @@
+// server.js
 import express from "express";
 import path from "path";
 
 const app = express();
 const PORT = 3000;
-
 const DEFAULT_STEAM_KEY = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 app.use(express.json());
@@ -14,7 +14,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use(express.static('public'));
+
+app.use(express.static('public'));
 
 // API 路由
 app.get("/api/games/:steamid", async (req, res) => {
@@ -33,6 +34,7 @@ app.get("/api/games/:steamid", async (req, res) => {
     }
 });
 
+// 本地开发监听
 if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => console.log(`✅ 后台开启端口：http://localhost:${PORT}`));
 }
