@@ -1,21 +1,22 @@
-// server.js
 import express from "express";
+import path from "path";
 
 const app = express();
 const PORT = 3000;
 
-// 如果用户没设置自己的Key再用这个默认值
-const DEFAULT_STEAM_KEY = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // 您的 Steam Web API 密钥
+const DEFAULT_STEAM_KEY = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 app.use(express.json());
 
-// 跨域
+// 跨域设置
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     next();
 });
 
-// 代理 Steam API
+app.use(express.static('public'));
+
+// API 路由
 app.get("/api/games/:steamid", async (req, res) => {
     const {steamid} = req.params;
     const userKey = req.query.key;
