@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 // API 路由
 app.get("/api/games/:steamid", async (req, res) => {
