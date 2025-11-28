@@ -1,4 +1,6 @@
-const API_BASE = "http://localhost:3000/api/games"
+const API_BASE = "/api/games"
+import app from '../server.js'
+
 const API_KEY_STORAGE_KEY = 'steam_api_key'
 const HISTORY_STORAGE_KEY = 'steam_id_history'
 
@@ -166,3 +168,5 @@ async function loadGames() {
         console.error("加载游戏时出错:", error)
     }
 }
+
+export default app;

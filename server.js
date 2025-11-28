@@ -32,4 +32,8 @@ app.get("/api/games/:steamid", async (req, res) => {
     }
 });
 
-app.listen(PORT, () => console.log(`✅ 后台开启端口：http://localhost:${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => console.log(`✅ 后台开启端口：http://localhost:${PORT}`));
+}
+
+export default app;
