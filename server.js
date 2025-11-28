@@ -14,8 +14,12 @@ app.use((req, res, next) => {
     next();
 });
 
+const publicPath = path.join(process.cwd(), 'public');
+app.use(express.static(publicPath));
 
-app.use(express.static('public'));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 // API 路由
 app.get("/api/games/:steamid", async (req, res) => {
